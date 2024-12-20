@@ -1,104 +1,33 @@
 # ai-driven-hospitality
-This repository contains a Restaurant Customer Feedback Dataset that simulates customer interactions, feedback, and preferences for a restaurant. The dataset includes a range of details, including feedback sentiment (positive, neutral, and negative), customer information, feedback specifics, and additional preferences related to dining, room choices, wellness, and more.
+
+Restaurant Customer Feedback Dataset
+This repository contains a simulated Restaurant Customer Feedback Dataset. The dataset includes customer feedback, preferences, and other relevant details, created using Python's Faker library to generate realistic data for various restaurant customer interactions.
 
 Table of Contents
 Overview
-Dataset Structure
-Columns Description
-Feedback Sentiments
-How to Use the Dataset
-License
+Steps to Create the Dataset
+
 Overview
-The dataset simulates restaurant feedback, including customer interactions, ratings, and detailed feedback about dining experiences, stay duration, and preferences. It is designed to assist in the development and testing of recommendation systems, sentiment analysis, or customer service automation in the restaurant industry.
+This dataset simulates restaurant feedback and customer preferences. It includes over 2300 rows of data with various customer experiences (positive, neutral, and negative), along with other customer-related information such as age, contact details, feedback timestamps, and dining preferences. The dataset is designed for use in data analysis, sentiment analysis, and customer experience modeling.
 
-The dataset is created with the help of the Faker library, and it generates over 2300 rows of realistic customer feedback, providing varied data points that can be used for machine learning, statistical analysis, or other data-driven applications.
+Steps to Create the Dataset
 
-Dataset Structure
-The dataset is structured as a CSV file with the following columns. It contains both categorical and numerical data related to restaurant customer experiences, ensuring a comprehensive dataset for a variety of use cases.
+The dataset was generated using the following steps:
 
-The dataset has 2300 rows, each representing a simulated feedback entry for a customer at a restaurant.
+Importing Libraries: The necessary libraries, such as csv, random, and Faker, were imported. The Faker library was used to generate fake names, emails, phone numbers, and other data fields.
 
-Columns Description
-Customer Name
+Defining the Columns: A list of columns was defined, including customer details (name, email, contact), feedback specifics (feedback content, sentiment), and customer preferences (dining, room type, wellness, etc.).
 
-Type: Text
-Description: A randomly generated name for the customer.
-cust mail id
+Defining Feedback Categories: Three categories of feedback (positive, neutral, and negative) were defined. Each category contained multiple pre-written feedback examples to simulate various customer experiences.
 
-Type: Text
-Description: A randomly generated email address for the customer.
-Feedback
+Generating Random Data: A function generate_random_row was created to generate a random row of data. For each row, random values were chosen for:
 
-Type: Text
-Description: A detailed feedback statement generated from three categories: Positive, Neutral, and Negative.
-Date and time
+Customer details (name, email, contact)
+Feedback sentiment (chosen randomly from positive, neutral, negative feedback)
+Additional customer preferences (dining, room, wellness, etc.)
+Creating Data Rows: Using a list comprehension, 2300 rows of random data were generated, representing different customer feedback entries.
 
-Type: Datetime
-Description: A timestamp of when the feedback was provided. All timestamps are in Indian Standard Time (IST), and the dates are randomly generated within the past year.
-caretaker/server name
+Writing the Data to CSV: The csv module was used to write the headers and data rows to a CSV file. The file was saved with the name restaurant_feedback_data.csv.
 
-Type: Text
-Description: A randomly generated name of the server or caretaker who attended the customer.
-care-empid
+Date and Time Considerations: The date and time for each feedback entry were generated in Indian Standard Time (IST) to represent the feedback timestamp correctly for a restaurant in India.
 
-Type: Text
-Description: A randomly generated employee ID for the caretaker/server.
-cust-age
-
-Type: Integer
-Description: The age of the customer, randomly selected between 18 and 70.
-cust-contact
-
-Type: Text
-Description: A randomly generated phone number for the customer.
-sentiment - future
-
-Type: Categorical (Positive/Neutral/Negative)
-Description: The sentiment regarding a future visit to the restaurant. The values are selected randomly between "Positive", "Neutral", and "Negative".
-dept
-
-Type: Categorical
-Description: The department associated with the customer or their service experience. Options include "HR", "Sales", "Support", "Finance", and "Engineering".
-customer-stay duration
-Type: Integer
-Description: The duration (in days) of the customer's stay at the restaurant, selected randomly between 1 and 30 days.
-customer-n visits past
-Type: Integer
-Description: The number of times the customer has visited the restaurant in the past, randomly chosen between 0 and 10.
-customer-membership status
-Type: Categorical
-Description: The membership status of the customer. Options include "Active" and "Inactive".
-customer-amt to be paid
-Type: String
-Description: The amount the customer needs to pay, randomly generated between $50 and $500.
-NPS (Net Promoter Score)
-Type: Integer
-Description: A score indicating the customer's likelihood to recommend the restaurant, randomly selected between 1 and 10.
-Dining - Vegetarian/vegan
-Type: Categorical
-Description: The customer's dining preference. Options include "Vegetarian", "Vegan", and "Non-Vegetarian".
-Room preference
-Type: Categorical
-Description: The customer's preferred room type (if applicable). Options include "Deluxe", "Standard", and "Suite".
-Sports activities - [table tennis, golf, ...]
-Type: Categorical
-Description: The type of sports activity the customer prefers. Options include "Table tennis", "Golf", "Swimming", and "Badminton".
-Wellness - gym, sauna, massage
-Type: Categorical
-Description: The customer's preferred wellness service. Options include "Gym", "Sauna", and "Massage".
-pricing patterns - frugal/luxury
-Type: Categorical
-Description: The customer's pricing preference. Options include "Frugal" and "Luxury".
-Feedback Sentiments
-Positive Feedback
-Examples of positive feedback include statements like:
-"The dining experience was absolutely amazing! The staff were friendly, the food was served hot, and the flavors were exceptional."
-"I had a wonderful time at the restaurant. The ambiance was cozy, the service was prompt, and the chef even came out to greet us."
-Neutral Feedback
-Neutral feedback represents an average or mixed experience:
-"The food was good, but it took quite a while to arrive. The staff were courteous, but the restaurant was a bit too crowded for my taste."
-"The dining was okay. Nothing too extraordinary, but the staff were polite, and the restaurant was clean."
-Negative Feedback
-Negative feedback reflects poor customer experiences:
-"The restaurant failed to meet basic expectations. The staff seemed inattentive, and the dishes lacked seasoning."
-"Unfortunately, the dining experience was below par. The pasta was soggy, the soup was bland, and the waiter forgot one of our orders."
