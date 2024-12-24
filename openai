@@ -1,0 +1,44 @@
+import os
+print(os.getenv("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"))
+from openai import OpenAI
+
+# Initialize OpenAI client
+client = OpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key="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",  # Replace with your actual API key
+)
+
+
+feedback = "The staff at reception was rude and unhelpful, but the dining experience was excellent."
+
+
+prompts = [
+    
+    f"Analyze the following feedback and determine the sentiment (Positive, Neutral, Negative) and specify the area responsible for any negative sentiment: '{feedback}'",
+
+   
+    f"Given this feedback: '{feedback}', identify if there is a negative sentiment. If so, determine which area (reception or dining) is responsible.",
+
+    
+    """Here are examples of feedback analysis:
+    Feedback: 'The room was clean, but the dining service was slow.' -> Sentiment: Negative, Area: Dining
+    Feedback: 'Reception staff were extremely kind and helpful.' -> Sentiment: Positive, Area: Reception
+    Analyze this feedback: 'The staff at reception was rude and unhelpful, but the dining experience was excellent.'"""
+]
+
+
+results = []
+
+for prompt in prompts:
+    completion = client.chat.completions.create(
+        model="google/gemini-2.0-flash-thinking-exp:free",
+        messages=[
+            {
+                "role": "user",
+                "content": prompt
+            }
+        ]
+    )
+
+for i, result in enumerate(results, 1):
+    print(f"Prompt {i} Result:\n{result}\n")
