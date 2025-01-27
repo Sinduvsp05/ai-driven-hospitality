@@ -113,8 +113,8 @@ def get_recommendations(data, user_id, n=5, similarity_matrix=None):
 # Email login credentials
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
-email_user  =  "akashhntest@gmail.com"
-email_password = "vizjakfuqholmggj"
+email_user  =  "example@gmail.com"
+email_password = "your_password"
 subject="Review Alert"
 
 # Function to send email notification
