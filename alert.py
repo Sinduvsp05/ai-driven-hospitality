@@ -3,7 +3,7 @@
 
 # %%
 from slack_sdk.webhook import WebhookClient
-url="https://hooks.slack.com/services/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"
+
 
 # %%
 pip install groq
@@ -20,8 +20,8 @@ import numpy as np
 # Email login credentials
 
 
-SLACK_WEBHOOK_URL = "https://hooks.slack.com/services/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" # Replace with actual URL
-client = Groq(api_key="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")  # Replace with your actual API key
+SLACK_WEBHOOK_URL = "  Replace with actual URL"
+client = Groq(api_key="Replace with your actual API key")  # Replace with your actual API key
 
 
 
