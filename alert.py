@@ -156,13 +156,7 @@ def process_review(user_id, review_text, to_email, n=5):
     sentiment_result = sentiment_and_areas(review_text)
     suggestions = suggestion_generator(sentiment_result, review_text)
     
-    # Handling cases when suggestions might be empty or not in expected format
-    # if not suggestions:
-    #     suggestions_text = "No suggestions available."
-    # else:
-    #     suggestions_text = "\n".join(
-    #         [f"• {area}: {suggestion}" for area, suggestion in suggestions.items()]
-    #     )
+    
     
     similarity_matrix, _ = build_user_profiles(data)
     recommendations = get_recommendations(data, user_id, n, similarity_matrix)
